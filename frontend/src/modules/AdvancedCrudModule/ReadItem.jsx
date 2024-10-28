@@ -166,16 +166,16 @@ export default function ReadItem({ config, selectedItem }) {
           >
             {translate('Download PDF')}
           </Button>,
-          <Button
-            key={`${uniqueId()}`}
-            loading={mailInProgress}
-            onClick={() => {
-              send(currentAdavancedCrud._id);
-            }}
-            icon={<MailOutlined />}
-          >
-            {translate('Send by Email')}
-          </Button>,
+          // <Button
+          //   key={`${uniqueId()}`}
+          //   loading={mailInProgress}
+          //   onClick={() => {
+          //     send(currentAdavancedCrud._id);
+          //   }}
+          //   icon={<MailOutlined />}
+          // >
+          //   {translate('Send by Email')}
+          // </Button>,
           <Button
             key={`${uniqueId()}`}
             onClick={() => {
