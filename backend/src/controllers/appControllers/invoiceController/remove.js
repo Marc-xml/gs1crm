@@ -1,14 +1,32 @@
-const mongoose = require('mongoose');
-
-const Model = mongoose.model('Invoice');
-const ModalPayment = mongoose.model('Payment');
-
 const remove = async (req, res) => {
-  return res.status(200).json({
-    success: true,
-    result: null,
-    message: 'Please Upgrade to Premium  Version to have full features',
-  });
+  const { id } = req.params;
+
+  try {
+    // Finding the document by ID and deleting it
+    const result = await Model.findByIdAndDelete(id);
+
+    if (!result) {
+      // If the document with the specified ID is not found
+      return res.status(404).json({
+        success: false,
+        message: 'Invoice not found',
+      });
+    }
+
+    // Returning successful response
+    return res.status(200).json({
+      success: true,
+      result,
+      message: 'Invoice removed successfully',
+    });
+  } catch (error) {
+    // Handling error response
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+      message: 'Failed to remove the invoice',
+    });
+  }
 };
 
 module.exports = remove;

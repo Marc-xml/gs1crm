@@ -22,7 +22,7 @@ const update = async (Model, req, res) => {
     return res.status(200).json({
       success: true,
       result,
-      message: 'Data updated successfully',
+      message: 'Person updated successfully',
     });
   } catch (error) {
     return res.status(500).json({
