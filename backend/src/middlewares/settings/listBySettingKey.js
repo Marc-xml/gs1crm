@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-
+require('../../models/coreModels/Setting')
 const Model = mongoose.model('Setting');
-
 const listBySettingKey = async ({ settingKeyArray = [] }) => {
   try {
     // Find document by id
